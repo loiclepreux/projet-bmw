@@ -1,0 +1,78 @@
+body {
+    background-color: black;
+}
+
+.mentions-legales {
+    padding: 60px 30px;
+    background: black;
+    color: cyan;
+    font-family: sans-serif;
+    max-width: 1000px;
+    margin: auto;
+    line-height: 1.7;
+    animation: apparaitre 1s ease forwards;
+    box-shadow: 0 0 10px cyan, 0 0 20px cyan inset;
+}
+
+.mentions-legales h1 {
+    font-size: 36px;
+    text-align: center;
+    color: cyan;
+    margin-bottom: 40px;
+    text-shadow: 0 0 10px cyan;
+    border-bottom: 2px solid cyan;
+    padding-bottom: 20px;
+}
+
+.mentions-legales h2 {
+    font-size: 24px;
+    margin-top: 40px;
+    margin-bottom: 15px;
+    color: white;
+    text-shadow: 0 0 6px cyan;
+    border-left: 4px solid cyan;
+    padding-left: 10px;
+}
+
+.mentions-legales p {
+    margin: 10px 0;
+    font-size: 17px;
+    color: #e0f7fa;
+}
+
+.mentions-legales a {
+    color: cyan;
+    text-decoration: underline;
+}
+
+.mentions-legales a:hover {
+    text-decoration: none;
+    color: white;
+    transition: 0.3s;
+}
+
+.retour-accueil {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.btn-retour {
+    display: inline-block;
+    padding: 12px 30px;
+    background: linear-gradient(145deg, #0f0f0f, #1a1a1a);
+    color: cyan;
+    border: 2px solid cyan;
+    border-radius: 50px;
+    font-size: 18px;
+    text-decoration: none;
+    box-shadow: 0 0 10px cyan, 0 0 20px cyan inset;
+    transition: all 0.3s ease-in-out;
+    font-family: eva, sans-serif;
+}
+
+.btn-retour:hover {
+    background: cyan;
+    color: black;
+    box-shadow: 0 0 15px white, 0 0 30px cyan;
+    transform: scale(1.05);
+}

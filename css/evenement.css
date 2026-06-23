@@ -1,0 +1,208 @@
+/* ------------------ GLOBAL ------------------ */
+@font-face {
+  font-family: eva;
+  src: url(../font/blazed/Blazed.ttf) format("truetype");
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background: linear-gradient(black 43%, gray);
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* ------------------ ANIMATIONS ------------------ */
+@keyframes shadowColor {
+  0% {
+    box-shadow: 3px 3px 30px rgb(47, 255, 0);
+  }
+  25% {
+    box-shadow: 3px 3px 60px rgb(0, 255, 255);
+  }
+  50% {
+    box-shadow: 3px 3px 30px rgb(255, 0, 255);
+  }
+  75% {
+    box-shadow: 3px 3px 60px rgb(255, 255, 0);
+  }
+  100% {
+    box-shadow: 3px 3px 10px rgb(47, 255, 0);
+  }
+}
+
+@keyframes apparaitre {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* ------------------ HEADER ------------------ */
+#nav-bar {
+  width: 100vw;
+  height: 180px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: black;
+  z-index: 999;
+  animation: shadowColor 3.5s infinite alternate;
+}
+
+#enseigne {
+  width: 60vw;
+  height: 15%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 92px;
+  color: white;
+  font-family: eva;
+}
+
+/* ------------------ MAIN ------------------ */
+main {
+  margin-top: 200px;
+}
+
+/* ----------- ONGLET (menu sous header) ----------- */
+#onglet {
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6%;
+  margin: 20px auto;
+  position: relative;
+  z-index: 1;
+}
+
+.onglet-btn {
+  padding: 15px 30px;
+  background: linear-gradient(145deg, #0f0f0f, #1a1a1a);
+  color: cyan;
+  border: 2px solid cyan;
+  border-radius: 50px;
+  font-size: 25px;
+  letter-spacing: 1px;
+  text-decoration: none;
+  font-weight: bold;
+  text-align: center;
+  box-shadow: 0 0 10px cyan, 0 0 20px cyan inset;
+  transition: all 0.3s ease-in-out;
+  font-family: eva, sans-serif;
+}
+
+.onglet-btn:hover {
+  color: black;
+  background: cyan;
+  box-shadow: 0 0 15px white, 0 0 30px cyan;
+  transform: scale(1.05);
+}
+/* ------------------ SECTION EVENEMENT ------------------ */
+
+.titre {
+  width: 25%;
+  height: 10%;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+h2 {
+  font-size: 40px;
+  font-weight: bold;
+  color: cyan;
+  text-align: center;
+  font-family: eva, sans-serif;
+}
+
+#evenement-section {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  grid-template-columns: repeat(3, 1fr);
+  width: 100%;
+  height: auto;
+  gap: 20px;
+  align-items: center;
+  padding: 50px 20px;
+  background: linear-gradient(black, gray);
+}
+
+.evenement h3 {
+  font-size: 30px;
+  color: cyan;
+  text-align: center;
+  text-decoration: underline;
+  margin-bottom: 20px;
+  font-family: eva, sans-serif;
+}
+
+.evenement {
+  display: flex;
+  gap: 20px;
+  flex-direction: column;
+  padding: 10px;
+  border: 2px solid cyan;
+  border-radius: 10px;
+  box-shadow: 0 -3px 10px cyan;
+}
+
+iframe {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16/9;
+  border-radius: 10px;
+}
+
+p {
+  margin: 0%;
+  color: white;
+}
+
+/* ------------------ SECTION : FOOTER ------------------ */
+#footer {
+  background: black;
+  color: cyan;
+  text-align: center;
+  padding: 40px 20px;
+  border-top: 2px solid cyan;
+  box-shadow: 0 -3px 10px cyan;
+}
+
+#footer a {
+  color: cyan;
+  text-decoration: none;
+  margin: 0 10px;
+}
+
+#footer a:hover {
+  text-decoration: underline;
+}
+
+.footer-contenu .social img {
+  height: 60px;
+  margin: 10px;
+  transition: transform 0.5s;
+}
+
+.footer-contenu .social img:hover {
+  transform: scale(1.5);
+  transform: rotate(360deg);
+}

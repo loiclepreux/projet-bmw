@@ -1,0 +1,40 @@
+Modèle : BMW M4 Compétition (G82)
+Motorisation : 3.0L 6 cylindres en ligne bi-turbo (S58)
+
+Puissance maximale : 510 chevaux (375 kW) @ 6 250 tr/min  
+Couple maximal : 650 Nm @ 2 750 – 5 500 tr/min
+
+Transmission :
+- Propulsion (RWD) ou xDrive (4 roues motrices)
+- Boîte automatique M Steptronic à 8 rapports (pas de boîte manuelle en version Compétition)
+
+Performances :
+- Accélération 0–100 km/h : 3.9 s (xDrive : 3.5 s)
+- Vitesse maximale : 250 km/h (290 km/h avec M Driver's Package)
+
+Châssis :
+- Freins M Compound ou freins céramique carbone (en option)
+- Suspension adaptative M
+- Différentiel actif M
+- Direction M Servotronic variable
+
+Dimensions :
+- Longueur : 4 794 mm
+- Largeur : 1 887 mm
+- Hauteur : 1 393 mm
+- Empattement : 2 857 mm
+- Poids : ~1 725 kg (DIN)
+
+Consommation (WLTP) :
+- Moyenne : 10.1 – 10.3 L/100 km
+- Émissions CO₂ : 231 – 235 g/km
+
+Équipements M :
+- Sièges baquets M Carbon (en option)
+- Échappement M Sport à volets
+- Pack extérieur M Carbon (en option)
+- Système multimédia BMW OS 7.0 avec écran 12.3"
+- Affichage tête haute M spécifique
+
+Prix indicatif neuf (2023) :
+- À partir de 103 000 €

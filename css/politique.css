@@ -1,0 +1,76 @@
+body {
+    background-color: black;
+}
+
+.mentions-legales {
+    max-width: 1000px;
+    margin: auto;
+    padding: 40px;
+    background-color: rgba(0, 0, 0, 0.8);
+    border: 2px solid cyan;
+    border-radius: 15px;
+    box-shadow: 0 0 20px cyan;
+}
+
+.mentions-legales h1 {
+    text-align: center;
+    font-size: 38px;
+    color: cyan;
+    margin-bottom: 30px;
+    text-shadow: 0 0 10px cyan;
+    border-bottom: 2px solid cyan;
+    padding-bottom: 10px;
+}
+
+.mentions-legales h2 {
+    font-size: 26px;
+    color: cyan;
+    margin-top: 40px;
+    margin-bottom: 15px;
+    text-decoration: underline;
+    text-shadow: 0 0 5px cyan;
+}
+
+.mentions-legales p,
+.mentions-legales li {
+    font-size: 18px;
+    color: white;
+    margin-bottom: 15px;
+}
+
+.mentions-legales a {
+    color: cyan;
+    text-decoration: underline;
+    transition: color 0.3s ease;
+}
+
+.mentions-legales a:hover {
+    color: white;
+}
+
+/* Bouton retour */
+.retour-accueil {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.btn-retour {
+    display: inline-block;
+    padding: 12px 30px;
+    background: linear-gradient(145deg, #0f0f0f, #1a1a1a);
+    color: cyan;
+    border: 2px solid cyan;
+    border-radius: 50px;
+    font-size: 18px;
+    text-decoration: none;
+    box-shadow: 0 0 10px cyan, 0 0 20px cyan inset;
+    transition: all 0.3s ease-in-out;
+    font-family: eva, sans-serif;
+}
+
+.btn-retour:hover {
+    background: cyan;
+    color: black;
+    box-shadow: 0 0 15px white, 0 0 30px cyan;
+    transform: scale(1.05);
+}

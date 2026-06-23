@@ -1,0 +1,240 @@
+/* ------------------ GLOBAL ------------------ */
+@font-face {
+    font-family: eva;
+    src: url(../font/blazed/Blazed.ttf) format('truetype');
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background: linear-gradient(black 43%, gray);
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+
+/* ------------------ ANIMATIONS ------------------ */
+@keyframes shadowColor {
+    0% { box-shadow: 3px 3px 30px rgb(47, 255, 0); }
+    25% { box-shadow: 3px 3px 60px rgb(0, 255, 255); }
+    50% { box-shadow: 3px 3px 30px rgb(255, 0, 255); }
+    75% { box-shadow: 3px 3px 60px rgb(255, 255, 0); }
+    100% { box-shadow: 3px 3px 10px rgb(47, 255, 0); }
+}
+
+@keyframes apparaitre {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+/* ------------------ HEADER ------------------ */
+#nav-bar {
+    width: 100vw;
+    height: 180px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: black;
+    z-index: 999;
+    animation: shadowColor 3.5s infinite alternate;
+}
+
+#enseigne {
+    width: 60vw;
+    height: 15%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 92px;
+    color: white;
+    font-family: eva;
+}
+
+/* ------------------ MAIN ------------------ */
+main {
+    margin-top: 200px;
+}
+
+/* ----------- ONGLET (menu sous header) ----------- */
+#onglet {
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 6%;
+    margin: 20px auto;
+    position: relative;
+    z-index: 1;
+}
+
+.onglet-btn {
+    padding: 15px 30px;
+    background: linear-gradient(145deg, #0f0f0f, #1a1a1a);
+    color: cyan;
+    border: 2px solid cyan;
+    border-radius: 50px;
+    font-size: 25px;
+    letter-spacing: 1px;
+    text-decoration: none;
+    font-weight: bold;
+    text-align: center;
+    box-shadow: 0 0 10px cyan, 0 0 20px cyan inset;
+    transition: all 0.3s ease-in-out;
+    font-family: eva, sans-serif;
+}
+
+.onglet-btn:hover {
+    color: black;
+    background: cyan;
+    box-shadow: 0 0 15px white, 0 0 30px cyan;
+    transform: scale(1.05);
+}
+
+/* ------------------ SECTION : ORGANIGRAMME ------------------ */
+
+.organigramme {
+    padding: 60px 30px;
+    background: black;
+    text-align: center;
+    color: white;
+}
+
+.organigramme h1 {
+    font-size: 36px;
+    margin-bottom: 40px;
+    color: cyan;
+    text-decoration: underline;
+    text-shadow: 0 0 10px cyan;
+    border-bottom: 2px solid cyan;
+    padding-bottom: 20px;
+}
+
+.niveau {
+    margin-bottom: 60px;
+}
+
+.niveau-1 {
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    gap: 30px;
+}
+
+.niveau-2, .niveau-3 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    justify-items: center;
+    gap: 30px;
+    margin-bottom: 60px;
+    padding: 20px;
+}
+
+.niveau-3 > *:nth-child(n+5) {
+    grid-column: span 2;
+}
+.niveau-2 > *:nth-child(n+5) {
+    grid-column: span 2;
+}
+
+.niveau h2 {
+    font-size: 30px;
+    color: cyan;
+    text-shadow: 0 0 6px cyan;
+    margin-bottom: 30px;
+    text-decoration: underline;
+}
+
+.employes {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px;
+    justify-items: center;
+}
+
+.carte {
+    background: rgba(0, 0, 0, 0.7);
+    border: 2px solid cyan;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 0 15px cyan;
+    transition: transform 0.3s ease;
+    width: 100%;
+    max-width: 250px;
+}
+
+.carte:hover {
+    transform: scale(1.05);
+}
+
+.carte img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    border: 1px solid cyan;
+}
+
+.carte h3 {
+    margin: 10px 0 5px;
+    font-size: 20px;
+    color: white;
+}
+
+.carte p {
+    margin: 4px 0;
+    color: cyan;
+}
+
+.carte .concession {
+    font-style: italic;
+    color: lightgray;
+    font-size: 14px;
+}
+
+/* ------------------ SECTION : FOOTER ------------------ */
+#footer {
+    background: black;
+    color: cyan;
+    text-align: center;
+    padding: 40px 20px;
+    border-top: 2px solid cyan;
+    box-shadow: 0 -3px 10px cyan;
+}
+
+#footer a {
+    color: cyan;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+#footer a:hover {
+    text-decoration: underline;
+}
+
+.footer-contenu .social img {
+    height: 60px;
+    margin: 10px;
+    transition: transform 0.5s;
+}
+
+.footer-contenu .social img:hover {
+    transform: scale(1.5);
+    transform: rotate(360deg);
+}

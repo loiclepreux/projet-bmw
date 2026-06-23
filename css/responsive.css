@@ -1,0 +1,65 @@
+/* ---------- max 1800px ---------- */
+
+/* ---------- max 1700px ---------- */
+
+/* ---------- max 1600px ---------- */
+
+/* ---------- max 1500px ---------- */
+@media (max-width: 1500px) {
+    #onglet > a.onglet-btn {
+    flex: 0 0 calc(35% - 10px);
+    box-sizing: border-box;
+    }
+}
+/* ---------- max 1400px ---------- */
+
+/* ---------- max 1378px ---------- */
+@media (max-width: 1378px) {
+    .bmw-model {
+    width: 380px;
+    height: 240px;
+    }
+}
+
+/* ---------- max 1200px ---------- */
+
+/* ---------- max 1160px ---------- */
+@media (max-width: 1160px) {
+    .bmw-model {
+    width: 280px;
+    height: 140px;
+    }
+}
+
+/* ---------- max 1000px ---------- */
+@media (max-width: 1000px) {
+    .onglet-btn.notre-equipe {
+    display: none;
+    }
+    #contenu-principal {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    }
+    .bmw-model {
+    width: 380px;
+    height: 240px;
+    }
+}
+/* ---------- max 945px ---------- */
+@media (max-width: 945px) {
+    .adresses {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* ---------- max 605px ---------- */
+@media (max-width: 605px) {
+    .adresses {
+    grid-template-columns: 1fr;
+    }
+    .btn-contact {
+    padding: 15px 15px; 
+    }
+}

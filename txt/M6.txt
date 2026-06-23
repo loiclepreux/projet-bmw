@@ -1,0 +1,44 @@
+Modèle : BMW M6 Coupé Compétition (F13)
+
+Motorisation :
+- V8 biturbo 4.4L (S63TÜ)
+- Cylindrée : 4 395 cm³
+- Puissance maximale : 600 chevaux (441 kW) @ 6 250 tr/min
+- Couple maximal : 700 Nm @ 1 500 – 6 000 tr/min
+
+Transmission :
+- Propulsion (roues arrière motrices)
+- Boîte de vitesses à double embrayage M DKG à 7 rapports
+- Launch Control
+
+Performances :
+- 0–100 km/h : 3.9 secondes
+- Vitesse maximale : 250 km/h (305 km/h avec M Driver’s Package)
+
+Dimensions :
+- Longueur : 4 898 mm
+- Largeur : 1 899 mm
+- Hauteur : 1 372 mm
+- Empattement : 2 851 mm
+- Poids : environ 1 850 kg (DIN)
+
+Châssis :
+- Suspension M adaptative
+- Direction M Servotronic à démultiplication variable
+- Différentiel actif M
+- Freins M en composite (freins carbone-céramique en option)
+
+Consommation (NEDC) :
+- Moyenne : 9.9 – 10.3 L/100 km
+- Émissions CO₂ : 231 – 239 g/km
+
+Équipements M :
+- Jantes 20 pouces M spécifiques
+- Échappement M Sport
+- Sièges M multifonction (chauffants, électriques)
+- Système iDrive avec écran 10.2"
+- Affichage tête haute HUD M
+- Pack Compétition : suspensions, direction, échappement et puissance améliorés
+
+Prix indicatif neuf (2017–2018) :
+- À partir de 134 000 €

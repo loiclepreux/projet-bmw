@@ -1,0 +1,39 @@
+Modèle : BMW M3 Compétition Berline (G80)
+Motorisation : 3.0L 6 cylindres en ligne bi-turbo (S58)
+
+Puissance maximale : 510 chevaux (375 kW)
+Couple maximal : 650 Nm @ 2 750 – 5 500 tr/min
+
+Transmission : 
+- Propulsion (RWD) ou xDrive (transmission intégrale)
+- Boîte automatique M Steptronic à 8 rapports
+
+Performances :
+- Accélération 0–100 km/h : 3.9 s (xDrive), 4.1 s (RWD)
+- Vitesse maximale : 250 km/h (280 km/h avec le pack M Driver)
+
+Châssis :
+- Suspension M adaptative
+- Freins M Compound (en option : freins carbone-céramique)
+- Différentiel actif M
+
+Dimensions :
+- Longueur : 4 794 mm
+- Largeur : 1 903 mm
+- Hauteur : 1 433 mm
+- Empattement : 2 857 mm
+- Poids : ~1 780 kg
+
+Consommation (WLTP) :
+- Moyenne : 10.2 – 10.8 L/100 km
+- Émissions CO₂ : 234 – 246 g/km
+
+Équipements M :
+- Sièges baquets M Carbon en option
+- Échappement M Sport
+- Interface iDrive avec écran 12.3” + 14.9”
+- Affichage tête haute M
+- Affichage M spécifique (compteur et modes de conduite)
+
+Prix indicatif neuf (2025) : 
+- À partir de 109 000 € (hors options)

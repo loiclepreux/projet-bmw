@@ -1,0 +1,627 @@
+/* ------------------ GLOBAL ------------------ */
+@font-face {
+    font-family: eva;
+    src: url(../font/blazed/Blazed.ttf) format('truetype');
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background: linear-gradient(black 43%, gray);
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+
+/* ------------------ ANIMATIONS ------------------ */
+@keyframes shadowColor {
+    0% { box-shadow: 3px 3px 30px rgb(47, 255, 0); }
+    25% { box-shadow: 3px 3px 60px rgb(0, 255, 255); }
+    50% { box-shadow: 3px 3px 30px rgb(255, 0, 255); }
+    75% { box-shadow: 3px 3px 60px rgb(255, 255, 0); }
+    100% { box-shadow: 3px 3px 10px rgb(47, 255, 0); }
+}
+
+@keyframes apparaitre {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+/* ------------------ HEADER ------------------ */
+#nav-bar {
+    width: 100vw;
+    height: 180px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: black;
+    z-index: 999;
+    animation: shadowColor 3.5s infinite alternate;
+}
+
+#enseigne {
+    width: 60vw;
+    height: 15%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 92px;
+    color: white;
+    font-family: eva;
+}
+
+/* ------------------ MAIN ------------------ */
+main {
+    margin-top: 200px;
+}
+
+/* ----------- ONGLET (menu sous header) ----------- */
+#onglet {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin: 20px auto 50px;
+    position: static;
+    z-index: auto;
+}
+
+.onglet-btn {
+    padding: 15px 30px;
+    background: linear-gradient(145deg, #0f0f0f, #1a1a1a);
+    color: cyan;
+    border: 2px solid cyan;
+    border-radius: 50px;
+    font-size: 25px;
+    letter-spacing: 1px;
+    text-decoration: none;
+    font-weight: bold;
+    text-align: center;
+    box-shadow: 0 0 10px cyan, 0 0 20px cyan inset;
+    transition: all 0.3s ease-in-out;
+    font-family: eva, sans-serif;
+    box-sizing: border-box;
+}
+
+.onglet-btn:hover {
+    color: black;
+    background: cyan;
+    box-shadow: 0 0 15px white, 0 0 30px cyan;
+    transform: scale(1.05);
+}
+
+
+/* ------------------ SECTION : PRÉSENTATION ------------------ */
+#presentation {
+    position: relative;
+    z-index: 0;
+    max-width: 80%;
+    margin: 50px auto;
+    padding: 30px;
+    background: rgba(0, 0, 0, 0.8);
+    border: 2px solid cyan;
+    border-radius: 25px;
+    box-shadow: 0 0 20px cyan;
+    color: white;
+    font-size: 22px;
+    line-height: 1.5;
+    text-align: justify;
+    backdrop-filter: blur(10px);
+    animation: apparaitre 1.5s ease;
+}
+
+#presentation h1 {
+    text-align: center;
+    font-size: 50px;
+    margin-top: -10px;
+    margin-bottom: 20px;
+    color: cyan;
+    text-shadow: 0 0 10px cyan;
+}
+
+
+/* ------------------ SECTION : CAROUSEL ------------------ */
+#carousel-3d h2 {
+    font-size: 45px;
+    color: cyan;
+    text-decoration: underline;
+    text-shadow: 0 0 10px cyan;
+    margin-bottom: 20px;
+    text-align: center;
+}
+.panoramique {
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 0;
+}
+
+.panoramique-bandeau {
+    display: flex;
+    gap: 10px;
+    will-change: transform;
+}
+
+.panoramique-bandeau img {
+    width: 450px;
+    height: 350px;
+    object-fit: cover;
+    border-radius: 10px;
+    flex-shrink: 0;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+}
+
+/* ------------------ SECTION : CONTENU PRINCIPAL ------------------ */
+#contenu-principal {
+    width: 100%;
+    height: 70vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-bottom: 2px solid cyan; 
+    border-top: 2px solid cyan; 
+}
+
+#contenu-principal h2 {
+    font-size: 45px;
+    color: cyan;
+    text-decoration: underline;
+    text-shadow: 0 0 10px cyan;
+    margin-bottom: 20px;
+}
+
+.contenue p {
+    color: cyan;
+    font-size: 20px;
+    line-height: 1.6;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 20px;
+    border: 1px solid cyan;
+    border-radius: 20px;
+    box-shadow: 0 0 10px cyan;
+    text-align: center;
+    max-width: 280px;
+}
+
+.contenue {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+}
+
+.exposition {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+}
+
+.bmw-model {
+    width: 480px;
+    height: 340px;
+    cursor: pointer;
+}
+/* ------------------ SECTION : CONTENU SECONDAIRE ------------------ */
+#contenu-secondaire {
+    width: 100%;
+    min-height: 70vh;
+    padding-bottom: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#contenu-secondaire h2 {
+    font-size: 40px;
+    color: cyan;
+    text-decoration: underline;
+    text-shadow: 0 0 10px cyan;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.adresses {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    width: 100%;
+    max-width: 1000px;
+    justify-content: center;
+    justify-items: center;
+}
+
+.adresse {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.7);
+    border: 2px solid cyan;
+    border-radius: 15px;
+    color: white;
+    font-size: 20px;
+    text-align: left;
+    line-height: 1.4;
+    box-shadow: 0 0 10px cyan;
+    animation: apparaitre 1s ease-in-out;
+}
+
+/* ------------------ SECTION : CONTENU TERTIAIRE ------------------ */
+#contenu-tertiaire {
+    width: 100%;
+    padding: 80px 40px;
+    background: rgba(0, 0, 0, 0.7);
+    border-top: 2px solid cyan;
+    text-align: center;
+}
+#contenu-tertiaire h2 {
+    font-size: 40px;
+    color: cyan;
+    text-decoration: underline;
+    text-shadow: 0 0 10px cyan;
+    margin-bottom: 40px;
+}
+
+.services-liste {
+    list-style: none;
+    padding: 0;
+    max-width: 900px;
+    margin: auto;
+    text-align: left;
+    color: white;
+    font-size: 18px;
+    line-height: 1.8;
+}
+
+.services-liste li {
+    margin-bottom: 15px;
+    position: relative;
+    padding-left: 25px;
+    animation: apparaitre 1s ease-in-out;
+}
+
+.services-liste li::before {
+    content: "✔";
+    position: absolute;
+    left: 0;
+    color: cyan;
+}
+
+/* ------------------ SECTION : CONTENU QUATUOR ------------------ */
+#pourquoi-nous {
+    width: 100%;
+    padding: 80px 40px;
+    background: rgba(0, 0, 0, 0.7);
+    border-top: 2px solid cyan;
+    border-bottom: 2px solid cyan;
+    text-align: center;
+}
+#pourquoi-nous h2 {
+    font-size: 40px;
+    color: cyan;
+    text-decoration: underline;
+    text-shadow: 0 0 10px cyan;
+    margin-bottom: 40px;
+}
+.arguments {
+    list-style: none;
+    padding: 0;
+    max-width: 1000px;
+    font-size: 20px;
+    margin: auto;
+    color: white;
+    text-align: center;
+    line-height: 1.8;
+}
+.arguments li {
+    margin-bottom: 15px;
+    position: relative;
+    padding-left: 30px;
+}
+.arguments li::before {
+    content: "✔";
+    left: 0;
+    color: cyan;
+}
+
+#temoignages {
+    padding: 80px 40px;
+    background: rgba(0, 0, 0, 0.7);
+    border-top: 2px solid cyan;
+    text-align: center;
+}
+
+#temoignages h2 {
+    font-size: 40px;
+    color: cyan;
+    text-decoration: underline;
+    text-shadow: 0 0 10px cyan;
+    margin-bottom: 40px;
+}
+
+.avis {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.avis blockquote{
+    font-size: 20px;
+    font-style: italic;
+    color: white;
+    line-height: 1.6;
+    max-width: 800px;
+    margin: auto;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 20px 30px;
+    border-radius: 15px;
+    box-shadow: 0 0 10px cyan;
+    animation: apparaitre 1s ease-in-out;
+}
+
+#contact-rapide {
+    padding: 100px 20px;
+    background: linear-gradient(to right, black, #0f0f0f);
+    text-align: center;
+    border-top: 2px solid cyan;
+}
+
+#contact-rapide h2 {
+    font-size: 40px;
+    color: cyan;
+    text-decoration: underline;
+    text-shadow: 0 0 10px cyan;
+    margin-bottom: 40px;
+}
+
+#contact-rapide p {
+    font-size: 20px;
+    color: white;
+    margin-bottom: 30px;
+}
+
+.btn-contact {
+    padding: 15px 40px;
+    font-size: 22px;
+    font-family: eva, sans-serif;
+    background: black;
+    border: 2px solid cyan;
+    color: cyan;
+    border-radius: 40px;
+    text-decoration: none;
+    box-shadow: 0 0 15px cyan;
+    transition: 0.3s ease;
+}
+
+.btn-contact:hover {
+    background: cyan;
+    color: black;
+    box-shadow: 0 0 25px white, 0 0 50px cyan;
+}
+
+/* ------------------ SECTION : PROJETS ------------------ */
+
+.projets {
+    position: relative;
+    width: 75%;
+    height: 50vh;
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 10px;
+    background: rgba(0, 0, 0, 0.7);
+    border: 2px solid cyan;
+    text-align: center;
+    margin: 0 auto 30px auto;
+    box-shadow: 0 0 20px cyan;
+    border-radius: 25px;
+    animation: shadowColor 3.5s infinite alternate;
+}
+.projets h2 {
+    font-size: 40px;
+    color: cyan;
+    border-bottom: 0 0 10px cyan;
+    text-decoration: underline;
+    text-shadow: 0 0 10px cyan;
+}
+#texte {
+    width: 60%;
+    height: 40%;
+    font-size: 20px;
+    color: black;
+    line-height: 1.6;
+    margin: 20px 0;
+}
+
+#mail {
+    width: 50%;
+    padding: 10px;
+    margin-top: 5px;
+    background: #111;
+    border: 1px solid cyan;
+    border-radius: 8px;
+    box-shadow: 0 0 10px cyan;
+    color: white;
+}
+
+.btn-projet {
+    width: 250px;
+    padding: 15px 40px;
+    font-size: 22px;
+    background: black;
+    border: 2px solid cyan;
+    color: cyan;
+    border-radius: 40px;
+    text-decoration: none;
+    box-shadow: 0 0 15px cyan;
+    transition: 0.3s ease;
+    margin-bottom: 15px;
+}
+.close {
+    color: cyan;
+    font-size: 28px;
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    transition: transform 0.2s, color 0.2s;
+}
+
+.close:hover {
+    transform: scale(1.2);
+    color: white;
+}
+
+.modal-admin {
+    display: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0,0,0,0.85);
+    backdrop-filter: blur(8px);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+.admin-content {
+    background: #111;
+    padding: 40px;
+    border: 2px solid cyan;
+    border-radius: 15px;
+    width: 400px;
+    text-align: center;
+    box-shadow: 0 0 20px cyan;
+}
+
+.admin-content h2 {
+    color: cyan;
+    margin-bottom: 30px;
+    text-shadow: 0 0 10px cyan;
+}
+
+.admin-content .form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.admin-content label {
+    color: cyan;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.admin-content input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid cyan;
+    border-radius: 8px;
+    background: #222;
+    color: white;
+}
+
+.admin-content button {
+    padding: 12px 30px;
+    border-radius: 30px;
+    background: cyan;
+    color: black;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 0 15px cyan;
+    transition: 0.3s;
+}
+
+.admin-content button:hover {
+    background: white;
+}
+
+.close-admin {
+    position: absolute;
+    top: 30px;
+    right: 50px;
+    font-size: 30px;
+    color: cyan;
+    cursor: pointer;
+}
+
+.switch {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.switch button {
+    background: #111;
+    color: cyan;
+    border: 2px solid cyan;
+    padding: 10px 20px;
+    font-weight: bold;
+    border-radius: 20px;
+    margin: 0 10px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.switch button.active {
+    background: cyan;
+    color: black;
+}
+
+.switch button:hover {
+    background: cyan;
+    color: black;
+}
+/* ------------------ SECTION : FOOTER ------------------ */
+#footer {
+    background: black;
+    color: cyan;
+    text-align: center;
+    padding: 40px 20px;
+    border-top: 2px solid cyan;
+    box-shadow: 0 -3px 10px cyan;
+}
+
+#footer a {
+    color: cyan;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+#footer a:hover {
+    text-decoration: underline;
+}
+
+.footer-contenu .social img {
+    height: 60px;
+    margin: 10px;
+    transition: transform 0.5s;
+}
+
+.footer-contenu .social img:hover {
+    transform: scale(1.5);
+    transform: rotate(360deg);
+}
