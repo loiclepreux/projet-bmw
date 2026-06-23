@@ -7,6 +7,14 @@ if (empty($_SESSION['user'])) {
     exit;
 }
 
+// Session timeout 30 minutes
+if (isset($_SESSION['last_activity']) && (time() - $_SESSION['last_activity']) > 1800) {
+    session_destroy();
+    header('Location: /index.php?erreur=timeout');
+    exit;
+}
+$_SESSION['last_activity'] = time();
+
 if (empty($_SESSION['csrf_token'])) {
     $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
 }
@@ -21,6 +29,8 @@ $customisations = $pdo->query("SELECT * FROM customisations ORDER BY date_enregi
 $reservations   = $pdo->query("SELECT * FROM reservations ORDER BY date_enregistrement DESC")->fetchAll();
 $essais         = $pdo->query("SELECT * FROM essais ORDER BY date_enregistrement DESC")->fetchAll();
 $projets        = $pdo->query("SELECT * FROM projets ORDER BY date_enregistrement DESC")->fetchAll();
+$vehiculesRef   = $pdo->query("SELECT id, marque, nom FROM vehicules ORDER BY id")->fetchAll();
+$employesRef    = $pdo->query("SELECT id, prenom, nom, fonction FROM employes ORDER BY id")->fetchAll();
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -39,6 +49,19 @@ $projets        = $pdo->query("SELECT * FROM projets ORDER BY date_enregistremen
 
     <main>
         <h2>Gestion des véhicules</h2>
+        <section id="ref-vehicules" class="ref-list">
+            <h3>Véhicules existants (référence IDs)</h3>
+            <table>
+                <tr><th>ID</th><th>Marque</th><th>Modèle</th></tr>
+                <?php foreach ($vehiculesRef as $v): ?>
+                    <tr>
+                        <td><?= $v['id'] ?></td>
+                        <td><?= htmlspecialchars($v['marque']) ?></td>
+                        <td><?= htmlspecialchars($v['nom']) ?></td>
+                    </tr>
+                <?php endforeach; ?>
+            </table>
+        </section>
         <section id="vehicules">
             <div class="ajouter_vehicule">
             <form action="gestion-admin.php?action=ajout&type=vehicule" method="POST">
@@ -99,6 +122,20 @@ $projets        = $pdo->query("SELECT * FROM projets ORDER BY date_enregistremen
         </section>
 
         <h2>Gestion des employés</h2>
+        <section id="ref-employes" class="ref-list">
+            <h3>Employés existants (référence IDs)</h3>
+            <table>
+                <tr><th>ID</th><th>Prénom</th><th>Nom</th><th>Fonction</th></tr>
+                <?php foreach ($employesRef as $e): ?>
+                    <tr>
+                        <td><?= $e['id'] ?></td>
+                        <td><?= htmlspecialchars($e['prenom']) ?></td>
+                        <td><?= htmlspecialchars($e['nom']) ?></td>
+                        <td><?= htmlspecialchars($e['fonction']) ?></td>
+                    </tr>
+                <?php endforeach; ?>
+            </table>
+        </section>
         <section id="employes">
             <div class="ajouter_employe">
                 <form action="gestion-admin.php?action=ajout&type=employe" method="post">
@@ -131,6 +168,10 @@ $projets        = $pdo->query("SELECT * FROM projets ORDER BY date_enregistremen
                         <label>Photo (nom du fichier) :</label>
                         <input type="text" name="photo" required>
                     </div>
+                    <div class="form-group">
+                        <label>Mot de passe :</label>
+                        <input type="password" name="password" placeholder="Laisser vide si non-admin">
+                    </div>
                     <button type="submit" class="btn">Ajouter</button>
                 </form>
             </div>
@@ -151,6 +192,7 @@ $projets        = $pdo->query("SELECT * FROM projets ORDER BY date_enregistremen
                             <option value="concession">Concession</option>
                             <option value="niveau">Niveau</option>
                             <option value="photo">Photo</option>
+                            <option value="password">Mot de passe</option>
                         </select>
                     </div>
                     <div class="form-group">

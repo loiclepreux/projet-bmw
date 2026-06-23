@@ -207,5 +207,6 @@ if (isset($_GET['envoi']) && $_GET['envoi'] === 'ok') {
     </div>
 </footer>
 
+<script src="../js/nav.js"></script>
 </body>
 </html>

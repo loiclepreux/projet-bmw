@@ -17,6 +17,18 @@ html, body {
     box-sizing: border-box;
 }
 
+/* ------------------ FLASH MESSAGES ------------------ */
+.flash {
+    max-width: 700px;
+    margin: 1.5rem auto;
+    padding: 1rem 1.5rem;
+    border-radius: 8px;
+    text-align: center;
+    font-weight: bold;
+}
+.flash-success { background: rgba(0, 255, 100, 0.15); border: 1px solid cyan; color: cyan; }
+.flash-error   { background: rgba(255, 0, 0, 0.15);   border: 1px solid #ff4444; color: #ff4444; }
+
 /* ------------------ ANIMATIONS ------------------ */
 @keyframes shadowColor {
     0% { box-shadow: 3px 3px 30px rgb(47, 255, 0); }

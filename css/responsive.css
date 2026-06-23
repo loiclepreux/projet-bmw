@@ -9,6 +9,24 @@
     height: auto;
 }
 
+/* ── Hamburger menu ──────────────────────────────────────────── */
+.hamburger {
+    display: none;
+    background: none;
+    border: 2px solid cyan;
+    color: cyan;
+    font-size: 22px;
+    padding: 4px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.2s;
+    z-index: 1001;
+}
+.hamburger:hover {
+    background: cyan;
+    color: black;
+}
+
 /* ── 1200px ─────────────────────────────────────────────────── */
 @media (max-width: 1200px) {
     #nav-bar   { height: 140px; }
@@ -72,8 +90,26 @@
     #enseigne { font-size: 26px; }
     main      { margin-top: 95px; }
 
-    /* Navigation */
-    .onglet-btn { font-size: 13px; padding: 8px 14px; }
+    /* Hamburger */
+    .hamburger { display: block; }
+
+    /* Navigation : menu replié par défaut, dépliable */
+    #onglet {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        position: fixed;
+        top: 80px;
+        left: 0;
+        width: 100%;
+        background: rgba(0, 0, 0, 0.97);
+        padding: 20px;
+        z-index: 1000;
+        border-bottom: 2px solid cyan;
+        gap: 12px;
+    }
+    #onglet.nav-open { display: flex; }
+    .onglet-btn { font-size: 13px; padding: 8px 14px; width: 100%; text-align: center; }
 
     /* Carousel */
     .panoramique-bandeau img { width: 180px; height: 140px; }

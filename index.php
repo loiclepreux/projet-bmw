@@ -91,7 +91,7 @@ if (empty($_SESSION['csrf_token'])) {
     <section id="contenu-principal">
 
         <div class="exposition">
-            <audio id="son-m2" preload="auto"><source src="/son/Bmw m2.mp3" type="audio/ogg" /></audio>
+            <audio id="son-m2" preload="auto"><source src="/son/Bmw m2.mp3" type="audio/mpeg" /></audio>
         <img class="bmw-model" src="/img/bmw-m2-removebg-preview.png" onclick="jouerSonM2();" alt="BMW M2" />
         </div>
 
@@ -107,7 +107,7 @@ if (empty($_SESSION['csrf_token'])) {
         </p>
     </div>
         <div class="exposition">
-            <audio id="son-m4" preload="auto"><source src="/son/BMW M4.mp3" type="audio/ogg" /></audio>
+            <audio id="son-m4" preload="auto"><source src="/son/BMW M4.mp3" type="audio/mpeg" /></audio>
         <img class="bmw-model" src="/img/bmw-m4-removebg-preview.png" onclick="jouerSonM4();" alt="BMW M4" />
         </div>
     </div>
@@ -175,6 +175,7 @@ if (empty($_SESSION['csrf_token'])) {
     </section>
 
 <form action="/php/traitement-projet.php" method="post">
+    <input type="hidden" name="csrf_token" value="<?= $_SESSION['csrf_token'] ?>">
     <div class="projets">
         <h2>Décrivez-nous votre projet</h2>
         <span class="close">&times;</span>
@@ -190,11 +191,6 @@ if (empty($_SESSION['csrf_token'])) {
     <div class="admin-content">
         <span class="close-admin">&times;</span>
 
-        <div class="switch">
-            <button id="show-login" class="active">Connexion</button>
-            <button id="show-register">Inscription</button>
-        </div>
-
         <!-- Formulaire Connexion -->
         <form id="admin-login" method="post" action="/php/login.php">
             <input type="hidden" name="csrf_token" value="<?= $_SESSION['csrf_token'] ?>">
@@ -209,29 +205,8 @@ if (empty($_SESSION['csrf_token'])) {
             <button type="submit">Connexion</button>
         </form>
 
-        <!-- Formulaire Inscription -->
-        <form id="admin-register" method="post" action="/php/register.php" style="display:none;">
-            <input type="hidden" name="csrf_token" value="<?= $_SESSION['csrf_token'] ?>">
-            <div class="form-group">
-                <label for="new-nom">Identifiant</label>
-                <input type="text" name="new-nom" required />
-            </div>
-            <div class="form-group">
-                <label for="new-password">Mot de passe</label>
-                <input type="password" name="new-password" required />
-            </div>
-            <div class="form-group">
-                <label for="confirm-password">Confirmer mot de passe</label>
-                <input type="password" name="confirm-password" required />
-            </div>
-            <button type="submit">Créer le compte</button>
-        </form>
-
     </div>
 </div>
-<?php
-?>
-
 <footer id="footer">
     <div class="footer-contenu">
     <p>© 2025 EVA Concession BMW — Tous droits réservés</p>
@@ -252,5 +227,6 @@ if (empty($_SESSION['csrf_token'])) {
     </div>
 </footer>
 <script src="/js/bmw.js"></script>
+<script src="/js/nav.js"></script>
 </body>
 </html>

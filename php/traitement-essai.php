@@ -7,6 +7,11 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     exit;
 }
 
+if (empty($_SESSION['csrf_token']) || empty($_POST['csrf_token']) || $_POST['csrf_token'] !== $_SESSION['csrf_token']) {
+    header('Location: /php/modele.php?erreur=csrf');
+    exit;
+}
+
 $nom       = trim($_POST['nom-essai'] ?? '');
 $email     = trim($_POST['email-essai'] ?? '');
 $telephone = trim($_POST['tel-essai'] ?? '');

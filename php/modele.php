@@ -2,8 +2,26 @@
 session_start();
 require_once 'config.php';
 
-$stmt = $pdo->query("SELECT * FROM vehicules ORDER BY id");
-$vehicules = $stmt->fetchAll();
+if (empty($_SESSION['csrf_token'])) {
+    $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
+}
+
+$vehicules = $pdo->query("SELECT * FROM vehicules ORDER BY id")->fetchAll();
+
+$messages = [
+    'reservation' => ['ok'     => ['Votre réservation a bien été envoyée ! Nous vous contacterons rapidement.', 'success']],
+    'essai'       => ['ok'     => ['Votre demande d\'essai a bien été enregistrée !', 'success']],
+    'erreur'      => [
+        'champs'  => ['Veuillez remplir tous les champs obligatoires.', 'error'],
+        'email'   => ['Adresse email invalide.', 'error'],
+        'bdd'     => ['Une erreur est survenue. Réessayez plus tard.', 'error'],
+        'csrf'    => ['Formulaire expiré. Veuillez réessayer.', 'error'],
+    ],
+];
+$flash = null;
+if (isset($_GET['reservation'])) $flash = $messages['reservation'][$_GET['reservation']] ?? null;
+elseif (isset($_GET['essai']))   $flash = $messages['essai'][$_GET['essai']] ?? null;
+elseif (isset($_GET['erreur']))  $flash = $messages['erreur'][$_GET['erreur']] ?? null;
 ?>
 
 <!DOCTYPE html>
@@ -48,9 +66,16 @@ $vehicules = $stmt->fetchAll();
 </div>
     </section>
 
+    <?php if ($flash): ?>
+    <div class="flash flash-<?= $flash[1] ?>">
+        <?= htmlspecialchars($flash[0]) ?>
+    </div>
+    <?php endif; ?>
+
     <section id="reservation">
         <h2>Reservez votre BMW</h2>
     <form id="form-reservation" action="/php/traitement-reservation.php" method="post">
+        <input type="hidden" name="csrf_token" value="<?= htmlspecialchars($_SESSION['csrf_token']) ?>" />
         <div class="form-group">
             <label for="nom">Nom complet</label>
             <input type="text" id="nom" name="nom" placeholder="Votre nom complet" required />
@@ -105,6 +130,7 @@ $vehicules = $stmt->fetchAll();
     <section class="essai">
     <h2>Réservez un essai</h2>
     <form id="form-essai" action="/php/traitement-essai.php" method="post">
+        <input type="hidden" name="csrf_token" value="<?= htmlspecialchars($_SESSION['csrf_token']) ?>" />
         <div class="form-group">
             <label for="nom-essai">Nom complet</label>
             <input type="text" id="nom-essai" name="nom-essai" placeholder="Votre nom complet" required />
@@ -180,5 +206,6 @@ $vehicules = $stmt->fetchAll();
     </div>
 </footer>   
 <script src="../js/modele.js"></script>
+<script src="../js/nav.js"></script>
 </body>
 </html>

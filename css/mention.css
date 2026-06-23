@@ -2,6 +2,11 @@ body {
     background-color: black;
 }
 
+@keyframes apparaitre {
+    from { opacity: 0; transform: translateY(50px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
 .mentions-legales {
     padding: 60px 30px;
     background: black;

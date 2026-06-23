@@ -192,6 +192,36 @@ section {
     box-shadow: 0 0 20px red;
 }
 
+/* ------------- LISTES DE RÉFÉRENCE --------------- */
+.ref-list {
+    display: block !important;
+    margin: 20px auto;
+    max-width: 1100px;
+    padding: 20px;
+}
+
+.ref-list h3 {
+    color: cyan;
+    margin-bottom: 10px;
+}
+
+.ref-list table {
+    width: 100%;
+    border-collapse: collapse;
+    color: white;
+    font-size: 14px;
+}
+
+.ref-list table th,
+.ref-list table td {
+    border: 1px solid #333;
+    padding: 6px 12px;
+    text-align: left;
+}
+
+.ref-list table th { color: cyan; background: #111; }
+.ref-list table tr:nth-child(even) { background: #0a0a0a; }
+
 /* ------------- FOOTER --------------- */
 footer {
     text-align: center;

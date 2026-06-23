@@ -21,34 +21,50 @@ if (!isset($_POST['csrf_token']) || $_POST['csrf_token'] !== $_SESSION['csrf_tok
     exit;
 }
 
+// ── Brute-force protection ────────────────────────────────────
+$maxAttempts = 5;
+$lockoutTime = 900; // 15 minutes
+
+$attempts    = $_SESSION['login_attempts']    ?? 0;
+$lastAttempt = $_SESSION['last_attempt_time'] ?? 0;
+
+if ((time() - $lastAttempt) >= $lockoutTime) {
+    $_SESSION['login_attempts'] = 0;
+    $attempts = 0;
+}
+
+if ($attempts >= $maxAttempts) {
+    $wait = ceil(($lockoutTime - (time() - $lastAttempt)) / 60);
+    header("Location: /index.php?erreur=bloque&attente={$wait}");
+    exit;
+}
+
+// ── Authentification ──────────────────────────────────────────
 $nom      = trim($_POST['nom'] ?? '');
 $password = $_POST['password'] ?? '';
 
 if (empty($nom) || empty($password)) {
-    header('Location: /index.php');
+    header('Location: /index.php?erreur=champs');
     exit;
 }
 
 try {
-    $stmt = $pdo->prepare("SELECT * FROM employes WHERE nom = :nom");
-    $stmt->execute([':nom' => $nom]);
+    $stmt = $pdo->prepare("SELECT * FROM employes WHERE nom = ?");
+    $stmt->execute([$nom]);
     $user = $stmt->fetch();
 
-    if ($user && password_verify($password, $user['password'])) {
+    if ($user && !empty($user['password']) && password_verify($password, $user['password'])) {
         session_regenerate_id(true);
-        $_SESSION['user'] = ['id' => $user['id'], 'nom' => $user['nom']];
-        $_SESSION['login_attempts'] = 0;
-
-        if (($_POST['rapel'] ?? '') === 'on') {
-            setcookie('remember_me', $user['nom'], time() + 86400 * 365, '/');
-        }
-
+        $_SESSION['user']            = ['id' => $user['id'], 'nom' => $user['nom']];
+        $_SESSION['login_attempts']  = 0;
+        $_SESSION['last_activity']   = time();
         header('Location: admin.php');
     } else {
-        $_SESSION['login_attempts'] = ($_SESSION['login_attempts'] ?? 0) + 1;
-        header('Location: /index.php?erreur=1');
+        $_SESSION['login_attempts']    = $attempts + 1;
+        $_SESSION['last_attempt_time'] = time();
+        header('Location: /index.php?erreur=identifiants');
     }
 } catch (PDOException $e) {
-    header('Location: /index.php?erreur=1');
+    header('Location: /index.php?erreur=bdd');
 }
 exit;

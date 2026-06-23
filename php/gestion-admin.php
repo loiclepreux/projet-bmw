@@ -51,7 +51,10 @@ try {
                 $_POST['fiche_technique'],
             ]);
         } elseif ($type === 'employe') {
-            $stmt = $pdo->prepare("INSERT INTO employes (prenom, nom, fonction, concession, niveau, photo) VALUES (?, ?, ?, ?, ?, ?)");
+            $password = !empty($_POST['password'])
+                ? password_hash($_POST['password'], PASSWORD_DEFAULT)
+                : null;
+            $stmt = $pdo->prepare("INSERT INTO employes (prenom, nom, fonction, concession, niveau, photo, password) VALUES (?, ?, ?, ?, ?, ?, ?)");
             $stmt->execute([
                 $_POST['prenom'],
                 $_POST['nom'],
@@ -59,6 +62,7 @@ try {
                 $_POST['concession'],
                 intval($_POST['niveau']),
                 $_POST['photo'],
+                $password,
             ]);
         } elseif ($type === 'evenement') {
             $stmt = $pdo->prepare("INSERT INTO evenement (titre, date, lieu, description, video) VALUES (?, ?, ?, ?, ?)");
@@ -79,13 +83,20 @@ try {
             $stmt->execute([$_POST['options'] ?? '', $_POST['fiche_technique'] ?? '', intval($_POST['id'])]);
 
         } elseif ($type === 'employe') {
-            $champs_autorises = ['prenom', 'nom', 'fonction', 'concession', 'niveau', 'photo'];
+            $champs_autorises = ['prenom', 'nom', 'fonction', 'concession', 'niveau', 'photo', 'password'];
             if (!in_array($_POST['champ'] ?? '', $champs_autorises)) {
                 repondre(false, 'Champ non autorisé.', $isAjax);
             }
-            $champ = $_POST['champ'];
-            $stmt  = $pdo->prepare("UPDATE employes SET `$champ` = ? WHERE id = ?");
-            $stmt->execute([$_POST['valeur'], intval($_POST['id'])]);
+            $champ  = $_POST['champ'];
+            $valeur = $_POST['valeur'];
+            if ($champ === 'password') {
+                if (empty($valeur)) {
+                    repondre(false, 'Mot de passe vide.', $isAjax);
+                }
+                $valeur = password_hash($valeur, PASSWORD_DEFAULT);
+            }
+            $stmt = $pdo->prepare("UPDATE employes SET `$champ` = ? WHERE id = ?");
+            $stmt->execute([$valeur, intval($_POST['id'])]);
 
         } elseif ($type === 'evenement') {
             $champs_autorises = ['titre', 'date', 'lieu', 'description', 'video'];

@@ -112,7 +112,7 @@ foreach ($employes as $e) {
     </div>
 </footer>
 
-<script src=""></script>
+<script src="../js/nav.js"></script>
 
 </body>
 </html>

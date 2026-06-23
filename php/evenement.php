@@ -83,5 +83,6 @@ $evenements = $pdo->query("SELECT * FROM evenement ORDER BY date DESC")->fetchAl
     </div>
 </footer>
 
+<script src="../js/nav.js"></script>
 </body>
 </html>

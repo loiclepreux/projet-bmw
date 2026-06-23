@@ -2,37 +2,33 @@
 session_start();
 require_once 'config.php';
 
-if (empty($_SESSION['csrf_token'])) {
-    $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
+// Inscription réservée aux admins connectés
+if (empty($_SESSION['user'])) {
+    header('Location: /index.php');
+    exit;
 }
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-    header('Location: /index.php');
+    header('Location: admin.php');
     exit;
 }
 
-if (!isset($_POST['csrf_token']) || $_POST['csrf_token'] !== $_SESSION['csrf_token']) {
-    header('Location: /index.php');
+if (empty($_POST['csrf_token']) || $_POST['csrf_token'] !== $_SESSION['csrf_token']) {
+    header('Location: admin.php');
     exit;
 }
-
-if (isset($_SESSION['last_register']) && time() - $_SESSION['last_register'] < 10) {
-    header('Location: /index.php?erreur=spam');
-    exit;
-}
-$_SESSION['last_register'] = time();
 
 $nom      = trim($_POST['new-nom'] ?? '');
 $password = $_POST['new-password'] ?? '';
 $confirm  = $_POST['confirm-password'] ?? '';
 
 if (empty($nom) || empty($password)) {
-    header('Location: /index.php?erreur=champs');
+    header('Location: admin.php?erreur=champs');
     exit;
 }
 
 if ($password !== $confirm) {
-    header('Location: /index.php?erreur=password');
+    header('Location: admin.php?erreur=password');
     exit;
 }
 
@@ -41,7 +37,7 @@ try {
     $check->execute([$nom]);
 
     if ($check->fetch()) {
-        header('Location: /index.php?erreur=existe');
+        header('Location: admin.php?erreur=existe');
         exit;
     }
 
@@ -49,8 +45,8 @@ try {
     $stmt = $pdo->prepare("INSERT INTO employes (nom, password) VALUES (?, ?)");
     $stmt->execute([$nom, $hash]);
 
-    header('Location: /index.php?inscription=ok');
+    header('Location: admin.php?inscription=ok');
 } catch (PDOException $e) {
-    header('Location: /index.php?erreur=bdd');
+    header('Location: admin.php?erreur=bdd');
 }
 exit;
