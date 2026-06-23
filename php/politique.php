@@ -2,8 +2,9 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Politique de Confidentialité - EVA Concession</title>
-  <link rel="stylesheet" href="../css/politique.css"> <!-- adapte le lien si nécessaire -->
+  <link rel="stylesheet" href="../css/politique.css">
 </head>
 <body>
 

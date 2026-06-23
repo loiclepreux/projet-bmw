@@ -1,65 +1,131 @@
-/* ---------- max 1800px ---------- */
+/* ============================================================
+   RESPONSIVE — EVA Concession BMW
+   Breakpoints : 1200px | 900px | 600px | 400px
+   ============================================================ */
 
-/* ---------- max 1700px ---------- */
-
-/* ---------- max 1600px ---------- */
-
-/* ---------- max 1500px ---------- */
-@media (max-width: 1500px) {
-    #onglet > a.onglet-btn {
-    flex: 0 0 calc(35% - 10px);
-    box-sizing: border-box;
-    }
-}
-/* ---------- max 1400px ---------- */
-
-/* ---------- max 1378px ---------- */
-@media (max-width: 1378px) {
-    .bmw-model {
-    width: 380px;
-    height: 240px;
-    }
+/* ── Shared base fixes (all pages) ──────────────────────────── */
+.logoM {
+    width: clamp(50px, 8vw, 120px) !important;
+    height: auto;
 }
 
-/* ---------- max 1200px ---------- */
+/* ── 1200px ─────────────────────────────────────────────────── */
+@media (max-width: 1200px) {
+    #nav-bar   { height: 140px; }
+    #enseigne  { font-size: clamp(40px, 5.5vw, 72px); }
+    main       { margin-top: 160px; }
 
-/* ---------- max 1160px ---------- */
-@media (max-width: 1160px) {
-    .bmw-model {
-    width: 280px;
-    height: 140px;
-    }
+    /* Carousel */
+    .panoramique-bandeau img { width: 350px; height: 270px; }
+
+    /* Organigramme */
+    .niveau-2, .niveau-3, .employes { grid-template-columns: repeat(3, 1fr); }
+
+    /* Admin */
+    section { grid-template-columns: repeat(2, 1fr) !important; }
 }
 
-/* ---------- max 1000px ---------- */
-@media (max-width: 1000px) {
-    .onglet-btn.notre-equipe {
-    display: none;
-    }
+/* ── 900px ───────────────────────────────────────────────────── */
+@media (max-width: 900px) {
+    /* Header */
+    #nav-bar  { height: 110px; }
+    #enseigne { font-size: clamp(28px, 4.5vw, 52px); }
+    main      { margin-top: 130px; }
+
+    /* Navigation */
+    #onglet    { height: auto; padding: 12px 10px; gap: 10px; }
+    .onglet-btn { font-size: 18px; padding: 10px 20px; }
+
+    /* Carousel */
+    .panoramique-bandeau img { width: 260px; height: 200px; }
+
+    /* Section principale index */
     #contenu-principal {
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+        flex-direction: column;
+        height: auto;
+        padding: 40px 20px;
+        gap: 30px;
     }
-    .bmw-model {
-    width: 380px;
-    height: 240px;
-    }
-}
-/* ---------- max 945px ---------- */
-@media (max-width: 945px) {
-    .adresses {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    }
+    .bmw-model  { width: 320px; height: auto; }
+    .exposition { margin: 0; }
+
+    /* Adresses */
+    .adresses { grid-template-columns: repeat(2, 1fr); }
+
+    /* Événements */
+    #evenement-section { grid-template-columns: repeat(2, 1fr); }
+
+    /* Organigramme */
+    .niveau-2, .niveau-3, .employes { grid-template-columns: repeat(2, 1fr); }
+    .niveau-3 > *:nth-child(n+5),
+    .niveau-2 > *:nth-child(n+5)   { grid-column: span 1; }
+
+    /* Admin */
+    section { grid-template-columns: 1fr !important; }
+    .admin-content { width: 90vw !important; }
 }
 
-/* ---------- max 605px ---------- */
-@media (max-width: 605px) {
-    .adresses {
-    grid-template-columns: 1fr;
-    }
-    .btn-contact {
-    padding: 15px 15px; 
-    }
+/* ── 600px ───────────────────────────────────────────────────── */
+@media (max-width: 600px) {
+    /* Header */
+    #nav-bar  { height: 80px; }
+    #enseigne { font-size: 26px; }
+    main      { margin-top: 95px; }
+
+    /* Navigation */
+    .onglet-btn { font-size: 13px; padding: 8px 14px; }
+
+    /* Carousel */
+    .panoramique-bandeau img { width: 180px; height: 140px; }
+
+    /* Section principale index */
+    .bmw-model { width: 100%; max-width: 280px; height: auto; }
+
+    /* Présentation */
+    #presentation { max-width: 95%; font-size: 17px; padding: 20px; }
+    #presentation h1 { font-size: 34px; }
+
+    /* Adresses */
+    .adresses { grid-template-columns: 1fr; }
+
+    /* Événements */
+    #evenement-section { grid-template-columns: 1fr; }
+
+    /* Organigramme */
+    .niveau-2, .niveau-3, .employes { grid-template-columns: repeat(2, 1fr); }
+
+    /* Formulaire projet */
+    .projets { width: 95%; height: auto; padding: 20px; }
+    #texte   { width: 90%; }
+    #mail    { width: 90%; }
+
+    /* Bouton contact */
+    .btn-contact { font-size: 16px; padding: 12px 20px; }
+
+    /* Modale admin */
+    .admin-content { width: 95vw !important; padding: 20px !important; }
+
+    /* Personnalisation */
+    #formulaire-customisation { padding: 20px; margin: 15px; }
+
+    /* Modèle galerie */
+    .voiture { grid-template-columns: 1fr !important; }
+}
+
+/* ── 400px ───────────────────────────────────────────────────── */
+@media (max-width: 400px) {
+    #enseigne   { font-size: 20px; }
+    .onglet-btn { font-size: 11px; padding: 6px 10px; }
+    .panoramique-bandeau img { width: 150px; height: 115px; }
+
+    .niveau-2, .niveau-3, .employes { grid-template-columns: 1fr; }
+}
+
+/* ── Pages légales (mention / politique) ────────────────────── */
+@media (max-width: 600px) {
+    .mentions-legales { padding: 25px 15px; }
+    .mentions-legales h1 { font-size: 26px; }
+    .mentions-legales h2 { font-size: 20px; }
+    .mentions-legales p,
+    .mentions-legales li { font-size: 15px; }
 }

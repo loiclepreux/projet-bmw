@@ -71,13 +71,15 @@ main {
 
 /* ----------- ONGLET (menu sous header) ----------- */
 #onglet {
-    height: 80px;
+    min-height: 80px;
+    height: auto;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
     gap: 6%;
     margin: 20px auto;
+    padding: 10px;
     position: relative;
     z-index: 1;
 }
@@ -235,6 +237,5 @@ main {
 }
 
 .footer-contenu .social img:hover {
-    transform: scale(1.5);
-    transform: rotate(360deg);
+    transform: scale(1.5) rotate(360deg);
 }
