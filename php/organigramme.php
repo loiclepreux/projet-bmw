@@ -3,7 +3,6 @@ session_start();
 
 require_once 'config.php';
 
-$pdo = new PDO($dsn, $username, $password, $options);
 $stmt = $pdo->query("SELECT * FROM employes ORDER BY niveau, concession, nom");
 $employes = $stmt->fetchAll();
 

@@ -1,9 +1,7 @@
 <?php
 session_start();
-
 require_once 'config.php';
 
-$pdo = new PDO($dsn, $username, $password, $options);
 $stmt = $pdo->query("SELECT * FROM vehicules ORDER BY id");
 $vehicules = $stmt->fetchAll();
 ?>
@@ -52,7 +50,7 @@ $vehicules = $stmt->fetchAll();
 
     <section id="reservation">
         <h2>Reservez votre BMW</h2>
-    <form id="form-reservation">
+    <form id="form-reservation" action="/php/traitement-reservation.php" method="post">
         <div class="form-group">
             <label for="nom">Nom complet</label>
             <input type="text" id="nom" name="nom" placeholder="Votre nom complet" required />
@@ -106,7 +104,7 @@ $vehicules = $stmt->fetchAll();
 
     <section class="essai">
     <h2>Réservez un essai</h2>
-    <form id="form-essai">
+    <form id="form-essai" action="/php/traitement-essai.php" method="post">
         <div class="form-group">
             <label for="nom-essai">Nom complet</label>
             <input type="text" id="nom-essai" name="nom-essai" placeholder="Votre nom complet" required />

@@ -174,7 +174,7 @@ if (empty($_SESSION['csrf_token'])) {
         <a href="#" class="btn-contact">Parlez-nous de votre BMW</a>
     </section>
 
-<form action="/php/admin.php" method="post">
+<form action="/php/traitement-projet.php" method="post">
     <div class="projets">
         <h2>Décrivez-nous votre projet</h2>
         <span class="close">&times;</span>

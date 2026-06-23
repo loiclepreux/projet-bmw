@@ -1,3 +1,9 @@
+<?php
+session_start();
+require_once 'config.php';
+
+$evenements = $pdo->query("SELECT * FROM evenement ORDER BY date DESC")->fetchAll();
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -32,83 +38,41 @@
 
     <section id="evenement-section">
 
-        <div class="evenement">
-            <h3>Journee Portes Ouvertes</h3>
-            <p>Date : 15 Mars 2025</p>
-            <p>Venez découvrir les derniers modèles BMW M et profiter d'offres exclusives !</p>
-            <p>Lieu : EVA Concession BMW, 123 Rue de l'Automobile, Metz</p>
-            <div class="evenement-video">
-                <iframe  src="https://www.youtube.com/embed/NMBL0mEdQrU" style="border: 2px solid cyan; border-radius: 10px"  
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            </div>
-        </div>
+        <?php if (empty($evenements)): ?>
+            <p style="text-align:center; color: cyan;">Aucun événement pour le moment.</p>
+        <?php endif; ?>
 
-        <div class="evenement">
-            <h3>Meeting exposition </h3>
-            <p>Date : 5 Juin 2025</p>
-            <p>Exposition exclusives de nos BMW vendu en 2024 !</p>
-            <p>Lieu : Parc des expos, Paris</p>
-            <div class="evenement-video">
-                <iframe src="https://www.youtube.com/embed/-NP7oBjZm3o" style="border: 2px solid cyan; border-radius: 10px" 
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <?php foreach ($evenements as $e): ?>
+            <div class="evenement">
+                <h3><?= htmlspecialchars($e['titre']) ?></h3>
+                <p>Date : <?= htmlspecialchars(date('d/m/Y', strtotime($e['date']))) ?></p>
+                <p><?= nl2br(htmlspecialchars($e['description'])) ?></p>
+                <p>Lieu : <?= htmlspecialchars($e['lieu']) ?></p>
+                <?php if (!empty($e['video'])): ?>
+                    <div class="evenement-video">
+                        <iframe src="<?= htmlspecialchars($e['video']) ?>"
+                            style="border: 2px solid cyan; border-radius: 10px"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen></iframe>
+                    </div>
+                <?php endif; ?>
             </div>
-        </div>
-
-        <div class="evenement">
-            <h3>Rassemblement custom</h3>
-            <p>Date : 18 Janviers 2025</p>
-            <p>Les proprietaires et leurs création !</p>
-            <p>Lieu : Stuttgart, Allemagne</p>
-            <div class="evenement-video">
-                <iframe src="https://www.youtube.com/embed/t0i_DT81oqk" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; 
-                picture-in-picture" style="border: 2px solid cyan; border-radius: 10px" allowfullscreen></iframe>
-            </div>
-        </div>
-
-        <div class="evenement">
-            <h3>Momment DRIFT</h3>
-            <p>Date : 22 Décembre 2024</p>
-            <p>Sceance de DRIFT réalisez par les pilotes de chez EVA Concession !</p>
-            <p>Lieu : Col du Donon, Vosges</p>
-            <div class="evenement-video">
-                <iframe src="https://www.youtube.com/embed/_IuRUNK5rAQ" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; 
-                picture-in-picture" style="border: 2px solid cyan; border-radius: 10px" allowfullscreen></iframe>
-            </div>
-        </div>
-
-        <div class="evenement">
-            <h3>PROCHAINEMENT</h3>
-            <p>Date : A VENIR</p>
-            <p></p>
-            <p>Lieu :</p>
-            <div class="evenement-video">
-                <iframe></iframe>
-            </div>
-        </div>
-
-        <div class="evenement">
-            <h3>PROCHAINEMENT</h3>
-            <p>Date : A VENIR</p>
-            <p></p>
-            <p>Lieu :</p>
-            <div class="evenement-video">
-                <iframe></iframe>
-            </div>
-        </div>
+        <?php endforeach; ?>
 
     </section>
 
 </main>
+
 <footer id="footer">
     <div class="footer-contenu">
     <p>© 2025 EVA Concession BMW — Tous droits réservés</p>
     <p>
-        <a href="../php/mention.php">Mentions légales</a> | 
-        <a href="../php/politique.php">Politique de confidentialité</a> | 
+        <a href="mention.php">Mentions légales</a> |
+        <a href="politique.php">Politique de confidentialité</a> |
         <a href="#">Espace Admin</a>
     </p>
     <p>
-        <a href="mailto:contact@evaconcession.fr">contact@evaconcession.fr</a> — 
+        <a href="mailto:contact@evaconcession.fr">contact@evaconcession.fr</a> —
         📞 03 87 00 00 00
     </p>
     <div class="social">
@@ -118,6 +82,6 @@
     </div>
     </div>
 </footer>
-<script src=""></script>
+
 </body>
 </html>

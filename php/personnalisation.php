@@ -1,3 +1,16 @@
+<?php
+session_start();
+require_once 'config.php';
+
+if (empty($_SESSION['csrf_token'])) {
+    $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
+}
+
+$message = '';
+if (isset($_GET['envoi']) && $_GET['envoi'] === 'ok') {
+    $message = 'Votre demande de personnalisation a bien été envoyée !';
+}
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -26,10 +39,15 @@
         <a href="organigramme.php" class="onglet-btn notre-equipe">Nôtre équipe</a>
     </nav>
 
+    <?php if ($message): ?>
+        <p style="color: cyan; text-align: center; padding: 1rem;"><?= htmlspecialchars($message) ?></p>
+    <?php endif; ?>
+
     <section id="formulaire-customisation">
         <h2>Personnalisez votre BMW</h2>
-    <form id="form-bmw">
-    
+    <form id="form-bmw" action="/php/traitement-customisation.php" method="post">
+        <input type="hidden" name="csrf_token" value="<?= $_SESSION['csrf_token'] ?>">
+
     <!-- 1. Infos personnelles -->
     <div class="form-section">
         <h3>Informations personnelles</h3>
@@ -52,7 +70,8 @@
         <h3>Modèle BMW</h3>
         <div class="form-group">
             <label for="modele">Choisissez un modèle</label>
-            <select id="modele" name="modele">
+            <select id="modele" name="modele" required>
+                <option value="">-- Choisissez --</option>
                 <option value="M2">BMW M2</option>
                 <option value="M3">BMW M3</option>
                 <option value="M4">BMW M4</option>
@@ -60,10 +79,10 @@
                 <option value="M6">BMW M6</option>
                 <option value="M7">BMW M7</option>
                 <option value="M8">BMW M8</option>
-                <option value="X3">BMW X3</option>
-                <option value="X5">BMW X5</option>
-                <option value="X6">BMW X6</option>
-        </select>
+                <option value="X3M">BMW X3 M</option>
+                <option value="X5M">BMW X5 M</option>
+                <option value="X6M">BMW X6 M</option>
+            </select>
         </div>
     </div>
 
@@ -77,7 +96,7 @@
                 <option>Noir Saphir</option>
                 <option>Bleu Misano</option>
                 <option>Gris Brooklyn</option>
-        </select>
+            </select>
         </div>
         <div class="form-group">
             <label for="jantes">Type de jantes</label>
@@ -85,7 +104,7 @@
                 <option>Jantes 18" standard</option>
                 <option>Jantes 19" M Sport</option>
                 <option>Jantes 20" Performance</option>
-        </select>
+            </select>
         </div>
         <div class="form-group">
             <label for="sellerie">Sellerie intérieure</label>
@@ -93,7 +112,7 @@
                 <option>Cuir noir</option>
                 <option>Cuir beige</option>
                 <option>Alcantara</option>
-        </select>
+            </select>
         </div>
     </div>
 
@@ -101,7 +120,6 @@
     <div class="form-section">
     <h3>Personnalisation Extrême</h3>
 
-    <!-- Préparation moteur -->
     <label for="stage1">Préparation moteur Stage 1 :</label>
     <select id="stage1" name="stage1">
         <option value="">-- Choisir --</option>
@@ -116,7 +134,6 @@
         <option>+130ch (turbo hybride)</option>
     </select>
 
-    <!-- Kit carrosserie -->
     <h4>Kit carrosserie</h4>
     <label><input type="radio" name="kit" value="complet"> Kit complet</label>
     <label><input type="radio" name="kit" value="personnalise"> Choix des éléments</label>
@@ -128,7 +145,6 @@
         <label><input type="checkbox" name="elements[]" value="jupes"> Jupes latérales</label>
     </div>
 
-    <!-- Peinture personnalisée -->
     <h4>Peinture personnalisée</h4>
     <label for="finition">Finition :</label>
     <select id="finition" name="finition">
@@ -146,7 +162,6 @@
         <option>Dégradé racing</option>
     </select>
 
-    <!-- Intérieur personnalisé -->
     <h4>Intérieur sur mesure</h4>
     <label for="sellerie-extreme">Sellerie :</label>
     <select id="sellerie-extreme" name="sellerie-extreme">
@@ -162,28 +177,26 @@
         <option>M chauffant</option>
     </select>
 
-    <!-- Sous-châssis -->
     <h4>Éléments de sous-châssis</h4>
     <label><input type="checkbox" name="neons" value="oui"> Néons RGB</label>
     <label><input type="checkbox" name="diffuseur" value="sonore"> Diffuseur sonore</label>
     </div>
     <button type="submit">Envoyer ma demande</button>
-    </div>
     </form>
 </section>
 
 </main>
 
-    <footer id="footer">
+<footer id="footer">
     <div class="footer-contenu">
     <p>© 2025 EVA Concession BMW — Tous droits réservés</p>
     <p>
-        <a href="../php/mention.php">Mentions légales</a> | 
-        <a href="../php/politique.php">Politique de confidentialité</a> | 
+        <a href="mention.php">Mentions légales</a> |
+        <a href="politique.php">Politique de confidentialité</a> |
         <a href="#">Espace Admin</a>
     </p>
     <p>
-        <a href="mailto:contact@evaconcession.fr">contact@evaconcession.fr</a> — 
+        <a href="mailto:contact@evaconcession.fr">contact@evaconcession.fr</a> —
         📞 03 87 00 00 00
     </p>
     <div class="social">
@@ -195,5 +208,4 @@
 </footer>
 
 </body>
-<script src=""></script>
-</html>   
+</html>
