@@ -75,13 +75,9 @@ document.addEventListener("DOMContentLoaded", () => {
   requestAnimationFrame(loop);
 
   // fonction d'un modal qui s'affiche en cliquant sur le bouton admin.
-    const openBtn = document.getElementById("open-admin");
-    const modal = document.getElementById("admin-modal");
+    const openBtn  = document.getElementById("open-admin");
+    const modal    = document.getElementById("admin-modal");
     const closeBtn = document.querySelector(".close-admin");
-    const loginForm = document.getElementById("admin-login");
-    const registerForm = document.getElementById("admin-register");
-    const showLoginBtn = document.getElementById("show-login");
-    const showRegisterBtn = document.getElementById("show-register");
 
     openBtn.addEventListener("click", e => {
         e.preventDefault();
@@ -94,19 +90,5 @@ document.addEventListener("DOMContentLoaded", () => {
 
     window.addEventListener("click", e => {
         if (e.target === modal) modal.style.display = "none";
-    });
-
-    showLoginBtn.addEventListener("click", () => {
-        loginForm.style.display = "block";
-        registerForm.style.display = "none";
-        showLoginBtn.classList.add("active");
-        showRegisterBtn.classList.remove("active");
-    });
-
-    showRegisterBtn.addEventListener("click", () => {
-        loginForm.style.display = "none";
-        registerForm.style.display = "block";
-        showLoginBtn.classList.remove("active");
-        showRegisterBtn.classList.add("active");
     });
 });
