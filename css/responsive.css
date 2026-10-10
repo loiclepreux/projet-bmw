@@ -29,33 +29,64 @@
 
 /* ── 1200px ─────────────────────────────────────────────────── */
 @media (max-width: 1200px) {
-    #nav-bar   { height: 140px; }
-    #enseigne  { font-size: clamp(40px, 5.5vw, 72px); }
-    main       { margin-top: 160px; }
+    #nav-bar {
+        height: 140px;
+    }
+    #enseigne {
+        font-size: clamp(40px, 5.5vw, 72px);
+    }
+    main {
+        margin-top: 160px;
+    }
 
     /* Carousel */
-    .panoramique-bandeau img { width: 350px; height: 270px; }
+    .panoramique-bandeau img {
+        width: 350px;
+        height: 270px;
+    }
 
     /* Organigramme */
-    .niveau-2, .niveau-3, .employes { grid-template-columns: repeat(3, 1fr); }
+    .niveau-2,
+    .niveau-3,
+    .employes {
+        grid-template-columns: repeat(3, 1fr);
+    }
 
     /* Admin */
-    section { grid-template-columns: repeat(2, 1fr) !important; }
+    section {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
 }
 
 /* ── 900px ───────────────────────────────────────────────────── */
 @media (max-width: 900px) {
     /* Header */
-    #nav-bar  { height: 110px; }
-    #enseigne { font-size: clamp(28px, 4.5vw, 52px); }
-    main      { margin-top: 130px; }
+    #nav-bar {
+        height: 110px;
+    }
+    #enseigne {
+        font-size: clamp(28px, 4.5vw, 52px);
+    }
+    main {
+        margin-top: 130px;
+    }
 
     /* Navigation */
-    #onglet    { height: auto; padding: 12px 10px; gap: 10px; }
-    .onglet-btn { font-size: 18px; padding: 10px 20px; }
+    #onglet {
+        height: auto;
+        padding: 12px 10px;
+        gap: 10px;
+    }
+    .onglet-btn {
+        font-size: 18px;
+        padding: 10px 20px;
+    }
 
     /* Carousel */
-    .panoramique-bandeau img { width: 260px; height: 200px; }
+    .panoramique-bandeau img {
+        width: 260px;
+        height: 200px;
+    }
 
     /* Section principale index */
     #contenu-principal {
@@ -64,34 +95,61 @@
         padding: 40px 20px;
         gap: 30px;
     }
-    .bmw-model  { width: 320px; height: auto; }
-    .exposition { margin: 0; }
+    .bmw-model {
+        width: 320px;
+        height: auto;
+    }
+    .exposition {
+        margin: 0;
+    }
 
     /* Adresses */
-    .adresses { grid-template-columns: repeat(2, 1fr); }
+    .adresses {
+        grid-template-columns: repeat(2, 1fr);
+    }
 
     /* Événements */
-    #evenement-section { grid-template-columns: repeat(2, 1fr); }
+    #evenement-section {
+        grid-template-columns: repeat(2, 1fr);
+    }
 
     /* Organigramme */
-    .niveau-2, .niveau-3, .employes { grid-template-columns: repeat(2, 1fr); }
-    .niveau-3 > *:nth-child(n+5),
-    .niveau-2 > *:nth-child(n+5)   { grid-column: span 1; }
+    .niveau-2,
+    .niveau-3,
+    .employes {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .niveau-3 > *:nth-child(n + 5),
+    .niveau-2 > *:nth-child(n + 5) {
+        grid-column: span 1;
+    }
 
     /* Admin */
-    section { grid-template-columns: 1fr !important; }
-    .admin-content { width: 90vw !important; }
+    section {
+        grid-template-columns: 1fr !important;
+    }
+    .admin-content {
+        width: 90vw !important;
+    }
 }
 
 /* ── 600px ───────────────────────────────────────────────────── */
 @media (max-width: 600px) {
     /* Header */
-    #nav-bar  { height: 80px; }
-    #enseigne { font-size: 26px; }
-    main      { margin-top: 95px; }
+    #nav-bar {
+        height: 80px;
+    }
+    #enseigne {
+        font-size: 26px;
+    }
+    main {
+        margin-top: 95px;
+    }
 
     /* Hamburger */
-    .hamburger { display: block; }
+    .hamburger {
+        display: block;
+    }
 
     /* Navigation : menu replié par défaut, dépliable */
     #onglet {
@@ -108,60 +166,204 @@
         border-bottom: 2px solid cyan;
         gap: 12px;
     }
-    #onglet.nav-open { display: flex; }
-    .onglet-btn { font-size: 13px; padding: 8px 14px; width: 100%; text-align: center; }
+    #onglet.nav-open {
+        display: flex;
+    }
+    .onglet-btn {
+        font-size: 13px;
+        padding: 8px 14px;
+        width: 100%;
+        text-align: center;
+    }
 
     /* Carousel */
-    .panoramique-bandeau img { width: 180px; height: 140px; }
+    .panoramique-bandeau img {
+        width: 180px;
+        height: 140px;
+    }
 
     /* Section principale index */
-    .bmw-model { width: 100%; max-width: 280px; height: auto; }
+    .bmw-model {
+        width: 100%;
+        max-width: 280px;
+        height: auto;
+    }
 
     /* Présentation */
-    #presentation { max-width: 95%; font-size: 17px; padding: 20px; }
-    #presentation h1 { font-size: 34px; }
+    #presentation {
+        max-width: 95%;
+        font-size: 17px;
+        padding: 20px;
+    }
+    #presentation h1 {
+        font-size: 34px;
+    }
 
     /* Adresses */
-    .adresses { grid-template-columns: 1fr; }
+    .adresses {
+        grid-template-columns: 1fr;
+    }
 
     /* Événements */
-    #evenement-section { grid-template-columns: 1fr; }
+    #evenement-section {
+        grid-template-columns: 1fr;
+    }
 
     /* Organigramme */
-    .niveau-2, .niveau-3, .employes { grid-template-columns: repeat(2, 1fr); }
+    .niveau-2,
+    .niveau-3,
+    .employes {
+        grid-template-columns: repeat(2, 1fr);
+    }
 
     /* Formulaire projet */
-    .projets { width: 95%; height: auto; padding: 20px; }
-    #texte   { width: 90%; }
-    #mail    { width: 90%; }
+    .projets {
+        width: 95%;
+        height: auto;
+        padding: 20px;
+    }
+    #texte {
+        width: 90%;
+    }
+    #mail {
+        width: 90%;
+    }
 
     /* Bouton contact */
-    .btn-contact { font-size: 16px; padding: 12px 20px; }
+    .btn-contact {
+        font-size: 16px;
+        padding: 12px 20px;
+    }
 
     /* Modale admin */
-    .admin-content { width: 95vw !important; padding: 20px !important; }
+    .admin-content {
+        width: 95vw !important;
+        padding: 20px !important;
+    }
 
     /* Personnalisation */
-    #formulaire-customisation { padding: 20px; margin: 15px; }
+    #formulaire-customisation {
+        padding: 20px;
+        margin: 15px;
+    }
 
     /* Modèle galerie */
-    .voiture { grid-template-columns: 1fr !important; }
+    .voiture {
+        grid-template-columns: 1fr !important;
+    }
 }
 
 /* ── 400px ───────────────────────────────────────────────────── */
 @media (max-width: 400px) {
-    #enseigne   { font-size: 20px; }
-    .onglet-btn { font-size: 11px; padding: 6px 10px; }
-    .panoramique-bandeau img { width: 150px; height: 115px; }
+    #enseigne {
+        font-size: 20px;
+    }
+    .onglet-btn {
+        font-size: 11px;
+        padding: 6px 10px;
+    }
+    .panoramique-bandeau img {
+        width: 150px;
+        height: 115px;
+    }
 
-    .niveau-2, .niveau-3, .employes { grid-template-columns: 1fr; }
+    .niveau-2,
+    .niveau-3,
+    .employes {
+        grid-template-columns: 1fr;
+    }
 }
 
 /* ── Pages légales (mention / politique) ────────────────────── */
 @media (max-width: 600px) {
-    .mentions-legales { padding: 25px 15px; }
-    .mentions-legales h1 { font-size: 26px; }
-    .mentions-legales h2 { font-size: 20px; }
+    .mentions-legales {
+        padding: 25px 15px;
+    }
+    .mentions-legales h1 {
+        font-size: 26px;
+    }
+    .mentions-legales h2 {
+        font-size: 20px;
+    }
     .mentions-legales p,
-    .mentions-legales li { font-size: 15px; }
+    .mentions-legales li {
+        font-size: 15px;
+    }
+}
+
+/* ============================================================
+   CORRECTIFS (toutes les pages)
+   ============================================================ */
+
+/* Le défilement se fait sur la page entière, plus dans le <body>.
+   Avant, html et body étaient bloqués à 100% de hauteur : sur téléphone,
+   c'est le body qui défilait "à l'intérieur" de l'écran (défilement saccadé,
+   barre d'adresse qui ne se cache plus, liens # qui renvoient en haut...). */
+html,
+body {
+    height: auto !important;
+    min-height: 100%;
+}
+html {
+    overflow-x: visible !important;
+}
+body {
+    overflow-x: hidden;
+}
+
+/* Le titre "EVA Concession" tient sur une seule ligne (il débordait en haut) */
+#enseigne {
+    height: auto;
+    white-space: nowrap;
+    font-size: min(4.6vw, 80px);
+}
+
+/* Téléphone : titre sur 2 lignes, un seul logo, le bouton menu à droite */
+@media (max-width: 600px) {
+    #nav-bar {
+        justify-content: space-between;
+        padding: 0 12px;
+    }
+    #enseigne {
+        white-space: normal;
+        font-size: 24px;
+        width: auto;
+        flex: 1;
+    }
+    #nav-bar .logoM:last-of-type {
+        display: none;
+    }
+}
+
+/* Page Événements : titre qui ne déborde plus, cartes alignées en haut */
+.titre {
+    width: auto;
+    height: auto;
+    padding: 0 12px;
+}
+.titre h2 {
+    font-size: clamp(20px, 6vw, 40px);
+}
+#evenement-section {
+    align-items: start;
+}
+
+/* Page Modèles : toutes les cartes ont la même taille d'image,
+   et le bouton est toujours aligné en bas */
+.modele {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+.modele img {
+    width: 100%;
+    height: 200px;
+    object-fit: contain;
+}
+.modele p {
+    flex: 1;
+    display: flex;
+    align-items: center;
 }
