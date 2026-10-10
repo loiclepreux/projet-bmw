@@ -32,7 +32,7 @@ elseif (isset($_GET['erreur']))  $flash = $messages['erreur'][$_GET['erreur']] ?
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>EVA Concession BMW</title>
     <link rel="stylesheet" href="../css/modele.css" />
-    <link rel="stylesheet" href="../css/responsive.css?v=2" />
+    <link rel="stylesheet" href="../css/responsive.css?v=3" />
 </head>
 
 <body>
@@ -59,7 +59,7 @@ elseif (isset($_GET['erreur']))  $flash = $messages['erreur'][$_GET['erreur']] ?
             <div class="voiture">
                 <?php foreach ($vehicules as $v): ?>
                     <div class="modele">
-                        <img src="../img/<?= htmlspecialchars($v['image']) ?>" alt="<?= htmlspecialchars($v['nom']) ?>">
+                        <img loading="lazy" src="../img/<?= htmlspecialchars($v['image']) ?>" alt="<?= htmlspecialchars($v['nom']) ?>">
                         <p><?= htmlspecialchars($v['marque']) . ' ' . htmlspecialchars($v['nom']) ?></p>
                         <button class="voir-fiche-technique" data-fichier="<?= htmlspecialchars($v['fiche_technique']) ?>"
                             data-image="../img/<?= htmlspecialchars($v['image']) ?>">Voir la fiche technique</button>

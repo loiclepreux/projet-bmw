@@ -14,7 +14,7 @@ if (empty($_SESSION['csrf_token'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>EVA Concession BMW</title>
     <link rel="stylesheet" href="/css/bmw.css" />
-    <link rel="stylesheet" href="/css/responsive.css?v=2" />
+    <link rel="stylesheet" href="/css/responsive.css?v=3" />
 </head>
 
 <body>
@@ -93,7 +93,7 @@ if (empty($_SESSION['csrf_token'])) {
         <section id="contenu-principal">
 
             <div class="exposition">
-                <audio id="son-m2" preload="auto">
+                <audio id="son-m2" preload="none">
                     <source src="/son/Bmw m2.mp3" type="audio/mpeg" />
                 </audio>
                 <img class="bmw-model" src="/img/bmw-m2-removebg-preview.png" onclick="jouerSonM2();" alt="BMW M2" />
@@ -111,7 +111,7 @@ if (empty($_SESSION['csrf_token'])) {
                 </p>
             </div>
             <div class="exposition">
-                <audio id="son-m4" preload="auto">
+                <audio id="son-m4" preload="none">
                     <source src="/son/BMW M4.mp3" type="audio/mpeg" />
                 </audio>
                 <img class="bmw-model" src="/img/bmw-m4-removebg-preview.png" onclick="jouerSonM4();" alt="BMW M4" />
@@ -231,7 +231,7 @@ if (empty($_SESSION['csrf_token'])) {
             </div>
         </div>
     </footer>
-    <script src="/js/bmw.js?v=2"></script>
+    <script src="/js/bmw.js?v=3"></script>
     <script src="/js/nav.js?v=2"></script>
 </body>
 

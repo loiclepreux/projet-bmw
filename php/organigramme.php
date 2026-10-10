@@ -23,7 +23,7 @@ foreach ($employes as $e) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Organigramme - EVA Concession</title>
     <link rel="stylesheet" href="../css/organigramme.css" />
-    <link rel="stylesheet" href="../css/responsive.css?v=2" />
+    <link rel="stylesheet" href="../css/responsive.css?v=3" />
 </head>
 
 <body>
@@ -54,7 +54,7 @@ foreach ($employes as $e) {
                 <div class="employes niveau-1">
                     <?php foreach ($groupes[1] as $e): ?>
                         <div class="carte">
-                            <img src="../photo/<?= htmlspecialchars($e['photo']) ?>" alt="<?= htmlspecialchars($e['prenom']) ?>">
+                            <img loading="lazy" src="../photo/<?= htmlspecialchars($e['photo']) ?>" alt="<?= htmlspecialchars($e['prenom']) ?>">
                             <h3><?= htmlspecialchars($e['prenom']) . ' ' . htmlspecialchars($e['nom']) ?></h3>
                             <p><?= htmlspecialchars($e['fonction']) ?></p>
                             <p class="concession"><?= htmlspecialchars($e['concession']) ?></p>
@@ -68,7 +68,7 @@ foreach ($employes as $e) {
                 <div class="employes niveau-2">
                     <?php foreach ($groupes[2] as $e): ?>
                         <div class="carte">
-                            <img src="../photo/<?= htmlspecialchars($e['photo']) ?>" alt="<?= htmlspecialchars($e['prenom']) ?>">
+                            <img loading="lazy" src="../photo/<?= htmlspecialchars($e['photo']) ?>" alt="<?= htmlspecialchars($e['prenom']) ?>">
                             <h3><?= htmlspecialchars($e['prenom']) . ' ' . htmlspecialchars($e['nom']) ?></h3>
                             <p><?= htmlspecialchars($e['fonction']) ?></p>
                             <p class="concession"><?= htmlspecialchars($e['concession']) ?></p>
@@ -82,7 +82,7 @@ foreach ($employes as $e) {
                 <div class="employes niveau-3">
                     <?php foreach ($groupes[3] as $e): ?>
                         <div class="carte">
-                            <img src="../photo/<?= htmlspecialchars($e['photo']) ?>" alt="<?= htmlspecialchars($e['prenom']) ?>">
+                            <img loading="lazy" src="../photo/<?= htmlspecialchars($e['photo']) ?>" alt="<?= htmlspecialchars($e['prenom']) ?>">
                             <h3><?= htmlspecialchars($e['prenom']) . ' ' . htmlspecialchars($e['nom']) ?></h3>
                             <p><?= htmlspecialchars($e['fonction']) ?></p>
                             <p class="concession"><?= htmlspecialchars($e['concession']) ?></p>

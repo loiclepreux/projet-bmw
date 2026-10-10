@@ -367,3 +367,45 @@ body {
     display: flex;
     align-items: center;
 }
+
+/* ============================================================
+   FLUIDITÉ SUR TÉLÉPHONE
+   ============================================================ */
+
+/* Les images du carrousel sont bougées par le JavaScript à chaque image :
+   pas de transition CSS en plus, sinon les deux se battent (ça saccade) */
+.panoramique-bandeau img {
+    transition: none;
+}
+
+@media (max-width: 600px) {
+    /* L'ombre qui change de couleur en boucle et le flou d'arrière-plan
+       demandent beaucoup au téléphone : version fixe sur petit écran */
+    #nav-bar,
+    .projets {
+        animation: none;
+        box-shadow: 0 0 20px cyan;
+    }
+    #presentation,
+    .modal-admin,
+    .modale {
+        backdrop-filter: none;
+    }
+
+    /* iPhone : un champ en dessous de 16px fait zoomer la page quand on tape dedans */
+    input,
+    select,
+    textarea {
+        font-size: 16px !important;
+    }
+}
+
+/* Écrans tactiles : pas d'effet "survol" qui reste bloqué après avoir touché */
+@media (hover: none) {
+    .onglet-btn:hover,
+    .modele:hover,
+    .carte:hover,
+    .btn-contact:hover {
+        transform: none;
+    }
+}

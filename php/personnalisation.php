@@ -19,7 +19,7 @@ if (isset($_GET['envoi']) && $_GET['envoi'] === 'ok') {
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>EVA Concession BMW</title>
     <link rel="stylesheet" href="../css/personnalisation.css" />
-    <link rel="stylesheet" href="../css/responsive.css?v=2" />
+    <link rel="stylesheet" href="../css/responsive.css?v=3" />
 </head>
 
 <body>
