@@ -3,6 +3,26 @@ session_start();
 require_once 'config.php';
 
 $evenements = $pdo->query("SELECT * FROM evenement ORDER BY date DESC")->fetchAll();
+
+// Transforme n'importe quel lien YouTube en lien "embed" (le seul accepté dans une iframe).
+// Marche avec : youtube.com/watch?v=..., youtu.be/..., youtube.com/shorts/...,
+// youtube.com/embed/... ou juste l'identifiant de 11 caractères.
+// Renvoie null si ce n'est pas une vidéo YouTube.
+function lienYoutube(?string $lien): ?string
+{
+    $lien = trim($lien ?? '');
+    if ($lien === '') {
+        return null;
+    }
+    if (preg_match('~^[A-Za-z0-9_-]{11}$~', $lien)) {
+        $id = $lien;
+    } elseif (preg_match('~(?:youtube(?:-nocookie)?\.com/(?:watch\?(?:.*&)?v=|embed/|shorts/|live/|v/)|youtu\.be/)([A-Za-z0-9_-]{11})~', $lien, $m)) {
+        $id = $m[1];
+    } else {
+        return null;
+    }
+    return 'https://www.youtube-nocookie.com/embed/' . $id;
+}
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -50,9 +70,12 @@ $evenements = $pdo->query("SELECT * FROM evenement ORDER BY date DESC")->fetchAl
                     <p>Date : <?= htmlspecialchars(date('d/m/Y', strtotime($e['date']))) ?></p>
                     <p><?= nl2br(htmlspecialchars($e['description'])) ?></p>
                     <p>Lieu : <?= htmlspecialchars($e['lieu']) ?></p>
-                    <?php if (!empty($e['video'])): ?>
+                    <?php $video = lienYoutube($e['video'] ?? null); ?>
+                    <?php if ($video): ?>
                         <div class="evenement-video">
-                            <iframe src="<?= htmlspecialchars($e['video']) ?>"
+                            <iframe src="<?= htmlspecialchars($video) ?>"
+                                title="<?= htmlspecialchars($e['titre']) ?>"
+                                loading="lazy"
                                 style="border: 2px solid cyan; border-radius: 10px"
                                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                                 allowfullscreen></iframe>
