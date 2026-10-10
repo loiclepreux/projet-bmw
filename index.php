@@ -14,7 +14,7 @@ if (empty($_SESSION['csrf_token'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>EVA Concession BMW</title>
     <link rel="stylesheet" href="/css/bmw.css" />
-    <link rel="stylesheet" href="/css/responsive.css" />
+    <link rel="stylesheet" href="/css/responsive.css?v=2" />
 </head>
 
 <body>
@@ -231,8 +231,8 @@ if (empty($_SESSION['csrf_token'])) {
             </div>
         </div>
     </footer>
-    <script src="/js/bmw.js"></script>
-    <script src="/js/nav.js"></script>
+    <script src="/js/bmw.js?v=2"></script>
+    <script src="/js/nav.js?v=2"></script>
 </body>
 
 </html>

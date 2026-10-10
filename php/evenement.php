@@ -12,7 +12,7 @@ $evenements = $pdo->query("SELECT * FROM evenement ORDER BY date DESC")->fetchAl
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>EVA Concession BMW</title>
     <link rel="stylesheet" href="../css/evenement.css" />
-    <link rel="stylesheet" href="../css/responsive.css" />
+    <link rel="stylesheet" href="../css/responsive.css?v=2" />
 </head>
 
 <body>
@@ -85,7 +85,7 @@ $evenements = $pdo->query("SELECT * FROM evenement ORDER BY date DESC")->fetchAl
         </div>
     </footer>
 
-    <script src="../js/nav.js"></script>
+    <script src="../js/nav.js?v=2"></script>
 </body>
 
 </html>

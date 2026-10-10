@@ -40,7 +40,7 @@ $employesRef    = $pdo->query("SELECT id, prenom, nom, fonction FROM employes OR
     <title>Interface Admin - EVA Concession</title>
     <meta name="csrf-token" content="<?= $_SESSION['csrf_token'] ?>">
     <link rel="stylesheet" href="../css/admin.css" />
-    <link rel="stylesheet" href="../css/responsive.css" />
+    <link rel="stylesheet" href="../css/responsive.css?v=2" />
 </head>
 <body>
     <header>

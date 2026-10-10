@@ -23,7 +23,7 @@ foreach ($employes as $e) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Organigramme - EVA Concession</title>
     <link rel="stylesheet" href="../css/organigramme.css" />
-    <link rel="stylesheet" href="../css/responsive.css" />
+    <link rel="stylesheet" href="../css/responsive.css?v=2" />
 </head>
 
 <body>
@@ -114,7 +114,7 @@ foreach ($employes as $e) {
         </div>
     </footer>
 
-    <script src="../js/nav.js"></script>
+    <script src="../js/nav.js?v=2"></script>
 
 </body>
 
