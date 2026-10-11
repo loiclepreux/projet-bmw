@@ -1,5 +1,5 @@
 <?php
-session_start();
+require_once __DIR__ . '/securite.php'; // session protégée
 require_once 'config.php';
 
 header('Content-Type: application/json');

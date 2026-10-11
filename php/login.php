@@ -1,5 +1,5 @@
 <?php
-session_start();
+require_once __DIR__ . '/securite.php'; // session protégée
 require_once 'config.php';
 
 if (!empty($_SESSION['user'])) {
@@ -39,6 +39,13 @@ if ($attempts >= $maxAttempts) {
     exit;
 }
 
+// Même blocage par adresse IP (un robot peut jeter son cookie, pas son adresse)
+if (limite_attente() > 0) {
+    $wait = ceil(limite_attente() / 60);
+    header("Location: /index.php?erreur=bloque&attente={$wait}");
+    exit;
+}
+
 // ── Authentification ──────────────────────────────────────────
 $nom      = trim($_POST['nom'] ?? '');
 $password = $_POST['password'] ?? '';
@@ -55,11 +62,13 @@ try {
 
     if ($user && !empty($user['password']) && password_verify($password, $user['password'])) {
         session_regenerate_id(true);
+        limite_reset();
         $_SESSION['user']            = ['id' => $user['id'], 'nom' => $user['nom']];
         $_SESSION['login_attempts']  = 0;
         $_SESSION['last_activity']   = time();
         header('Location: admin.php');
     } else {
+        limite_echec();
         $_SESSION['login_attempts']    = $attempts + 1;
         $_SESSION['last_attempt_time'] = time();
         header('Location: /index.php?erreur=identifiants');

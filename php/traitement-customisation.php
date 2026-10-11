@@ -1,9 +1,15 @@
 <?php
-session_start();
+require_once __DIR__ . '/securite.php'; // session protégée
 require_once 'config.php';
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     header('Location: /php/personnalisation.php');
+    exit;
+}
+
+// Le formulaire doit venir de notre site (jeton CSRF)
+if (empty($_SESSION['csrf_token']) || !hash_equals($_SESSION['csrf_token'], (string) ($_POST['csrf_token'] ?? ''))) {
+    header('Location: /php/personnalisation.php?erreur=csrf');
     exit;
 }
 
@@ -22,7 +28,7 @@ if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
     exit;
 }
 
-$elements = isset($_POST['elements']) ? implode(', ', array_map('trim', $_POST['elements'])) : '';
+$elements = is_array($_POST['elements'] ?? null) ? implode(', ', array_map('trim', array_map('strval', $_POST['elements']))) : '';
 
 try {
     $stmt = $pdo->prepare("INSERT INTO customisations
